@@ -6,9 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
@@ -35,15 +33,14 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 
 @Composable
-fun loginScreen( navController: NavController
+fun singUpScreen(
 
 ){
-    var username by remember { mutableStateOf("") }
+    var nickname by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -54,29 +51,42 @@ fun loginScreen( navController: NavController
         Image(painter = painterResource(id = R.drawable.a),
             contentDescription = "ImageLogin",
             modifier = Modifier.size(170.dp),
-           )
-        
+        )
+
         Text(text = "Welcome Prisma VI", fontSize = 28.sp, fontWeight = FontWeight.Bold)
 
-        
+
         Spacer(modifier = Modifier.height(4.dp))
-        
-        OutlinedTextField(value = username,
-            onValueChange = {username = it},
-            label = { Text(text = "Email Address")},
+
+        OutlinedTextField(value = nickname,
+            onValueChange = {nickname = it},
+            label = { Text(text = "Nickname") },
             singleLine = true,
             leadingIcon = {
                 IconButton(onClick = {/*TODO*/}) {
-                    Icon(imageVector = Icons.Filled.Email, contentDescription = "Email Icon")
+                    Icon(imageVector = Icons.Filled.AccountCircle, contentDescription = "User Icon")
                 }
             }
-            )
-        
+        )
+
+        Spacer(modifier = Modifier.height(4.dp))
+
+        OutlinedTextField(value = email,
+            onValueChange = {email = it},
+            label = { Text(text = "Email Address") },
+            singleLine = true,
+            leadingIcon = {
+                IconButton(onClick = {/*TODO*/}) {
+                    Icon(imageVector = Icons.Filled.Email, contentDescription = "User Icon")
+                }
+            }
+        )
+
         Spacer(modifier = Modifier.height(4.dp))
 
         OutlinedTextField(value = password,
             onValueChange = {password = it},
-            label = { Text(text = "Password")},
+            label = { Text(text = "Password") },
             singleLine = true,
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -85,26 +95,19 @@ fun loginScreen( navController: NavController
                     Icon(imageVector = Icons.Filled.Lock, contentDescription = "Password Icon")
                 }
             }
-            )
-        
+        )
+
         Spacer(modifier = Modifier.height(4.dp))
-    
+
         Button(onClick = { /*TODO*/ },
-           colors = ButtonDefaults.buttonColors(
-               containerColor = Color(0xFF62D2A3)
-           )
-           ) {
-            Text(text = "Login")
-            
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF62D2A3)
+            )
+        ) {
+            Text(text = "Registe")
+
         }
 
-        Spacer(modifier = Modifier.height(4.dp))
-
-        TextButton(onClick = {
-            navController.navigate("SingUp")
-        }) {
-            Text(text = "Sing Up")
-        }
 
     }
 }
