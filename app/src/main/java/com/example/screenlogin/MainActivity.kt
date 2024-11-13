@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.screenlogin.model.RegisterViewModel
+import com.example.screenlogin.repository.RegisterRequest
 import com.example.screenlogin.screens.loginScreen
 import com.example.screenlogin.screens.singUpScreen
 
@@ -17,6 +18,7 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var viewModel: LoginViewModel
     private lateinit var viewModelRegister: RegisterViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

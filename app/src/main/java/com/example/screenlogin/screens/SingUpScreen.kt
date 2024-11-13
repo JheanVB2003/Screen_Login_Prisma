@@ -39,9 +39,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.screenlogin.R
-import com.example.screenlogin.model.RegisterViewModel.RegisterStatus
 import com.example.screenlogin.model.RegisterViewModel
 import com.example.screenlogin.repository.RegisterRequest
+import com.example.screenlogin.model.RegisterViewModel.RegisterStatus
 
 @Composable
 fun singUpScreen(navController: NavController, viewModelRegister: RegisterViewModel) {
@@ -122,7 +122,7 @@ fun singUpScreen(navController: NavController, viewModelRegister: RegisterViewMo
         }
         Spacer(modifier = Modifier.height(8.dp))
 
-        if (registerState is RegisterStatus.Loading) {
+        if (registerState is RegisterViewModel.RegisterStatus.Loading) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
         }
 
