@@ -50,9 +50,9 @@ class LoginViewModel : ViewModel() {
                         // Usa o Gson para extrair a mensagem de erro, caso o JSON tenha uma estrutura específica
                         val gson = Gson()
                         val errorJson = gson.fromJson(errorBody, ErrorResponse::class.java)
-                        errorJson.message ?: "Credenciais inválidas." // Ajuste conforme o formato da API
+                        errorJson.message ?: "Erro API." // Ajuste conforme o formato da API
                     } catch (e: Exception) {
-                        "Credenciais inválidas."
+                        "Catch."
                     }
                 } else {
                     "Credenciais inválidas."

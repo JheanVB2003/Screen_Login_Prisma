@@ -73,6 +73,7 @@ fun loginScreen( navController: NavController, viewModel: LoginViewModel){
             onValueChange = {email = it},
             label = { Text(text = "Email Address")},
             singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
             leadingIcon = {
                 IconButton(onClick = {/*TODO*/}) {
                     Icon(imageVector = Icons.Filled.Email, contentDescription = "Email Icon")
